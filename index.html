@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/photon.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div id="pre-download" class="window" style="display: flex;">
+			<header class="toolbar toolbar-header">
+			<h1 class="title">
+				<img src="img/icon.png" />
+				<strong>NSD</strong> ~ Node Serial Downloader
+				<img src="img/icon.png" />
+			</h1>				
+			</header>
+			<div class="window-content">
+				<div class="pane-group">
+					<div class="pane">
+						<form>
+							<p class="form-title">Required Parameters</p>
+							<div class="side-kick">	
+								<div class="form-group inline">
+									<label for="input-url">Download URL:</label>	
+									<input id="input-url" type="text" class="form-control" placeholder="URL" />
+									<small class="text-help text-error">
+										<strong>Error:</strong>
+										URL malformed or doesn't have <strong style="color: #b15eda">${serial}</strong> in it.
+									</small>
+									<small class="text-help">
+										<strong>Usage Example:</strong>
+										http://example.com/download?id=<strong style="color: #b15eda">${serial}</strong>
+									</small>
+								</div>
+								<div class="form-group inline">
+									<label for="input-startingnumber">Starting Number:</label>
+									<input id="input-startingnumber" type="number" class="form-control" placeholder="Eg. 1" value="1" />
+									<small class="text-help text-error">
+										<strong>Error:</strong>
+										Starting number must be lower than ending number.
+									</small>
+								</div>
+								<div class="form-group inline">
+									<label for="input-endingnumber">Ending Number:</label>
+									<input id="input-endingnumber"  type="number" class="form-control" placeholder="Eg. 100" value="100" />
+									<small class="text-help text-error">
+										<strong>Error:</strong>
+										Ending number must be bigger than starting number.
+									</small>
+								</div>
+								<div class="form-group inline">
+									<label for="btn-directory">Save to:</label>	
+									<button id="btn-directory" onclick="setAttribute('data-touched', 1)" data-directory="" type="button" class="btn btn-large btn-primary">Choose a directory</button>
+									<small class="text-help text-error">
+										<strong>Error:</strong>
+										You have to choose a directory to download files.
+									</small>
+								</div>
+							</div>
+							<p class="form-title">Options</p>
+							<div class="side-kick">	
+								<!-- div class="checkbox">
+									<label>
+										<input id="input-log" type="checkbox" checked> Log IDs when an error occurs
+									</label>
+								</div>								
+								<div class="checkbox">
+									<label>
+										<input id="input-donthtml" type="checkbox"> Do not download HTML pages
+									</label>
+								</div -->
+								Filename Format:
+								<div class="radio">
+									<label>
+										<input value="original" name="filename-format" type="radio" checked>
+										OriginalFilename.extension
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input value="id" name="filename-format" type="radio">
+										id.extension
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input value="id_original" name="filename-format" type="radio">
+										id_OriginalFilename.extension
+									</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<footer class="toolbar toolbar-footer">
+				<div class="toolbar-actions">
+					<button type="button" id="btn-close" class="btn btn-mini btn-primary">
+						Close &nbsp;<span class="icon icon-cancel"></span>&nbsp;
+					</button>
+					<button type="button" id="btn-download" class="btn btn-mini btn-primary pull-right">
+						Start Download &nbsp;<span class="icon icon-right"></span>&nbsp;
+					</button>
+				</div>
+			</footer>
+		</div>
+
+		<div id="downloading" class="window" style="display: none;">
+			<header class="toolbar toolbar-header">
+				<h1 class="title">
+					<img src="img/icon.png" />
+					<strong>NSD</strong> ~ Node Serial Downloader - Downloading...
+					<img src="img/icon.png" />
+				</h1>
+			</header>
+			<div class="window-content">
+				<div class="pane-group">
+					<div class="pane">
+						<p><strong>Info</strong></p>
+						<ul>
+							<li>
+								URL: <span id="url-span">XXX</span>
+							</li>
+							<li>
+								Numbers: <span id="starting-number-span">XX</span> up to <span id="ending-number-span">XXX</span>
+							</li>
+							<li>
+								Concurrent Downloads: <span id="concurrent-downloads-span">5</span></span>
+							</li>
+							<li>
+								Saving files to: <span id="target-dir">[target directory]</span></span>
+							</li>
+						</ul>
+						<hr style="margin-right: 10px"/>
+						<p>
+							<strong>Status</strong>
+						</p>
+						<div class="status side-kick">
+							Progress
+							<br />
+							<div class="progress">
+								<div id="progress-bar" class="bar" style="width: 1%"></div>
+							</div>
+							Completed: <span id="n-percentage">0</span>%;
+							<br />
+							Current Number: <span id="n-current">0</span>
+							<br />
+							Success Downloads: <span id="n-success">0</span>
+							<br />
+							Failed Downloads: <span id="n-failed">0</span>
+							<br />
+							
+						</div>
+						<div id="error-log"></div>
+					</div>
+				</div>
+			</div>
+			<footer class="toolbar toolbar-footer">
+				<div class="toolbar-actions">
+					<button id="btn-cancel" class="btn btn-mini btn-primary pull-left">
+						<span class="icon icon-left"></span>&nbsp; Cancel Download
+					</button>
+					<!-- button id="btn-info" class="btn btn-mini btn-primary pull-right">
+						View Error Log (10) &nbsp;<span class="icon icon-info-circled"></span>
+					</button -->
+				</div>
+			</footer>
+		</div>
+	</div>
+	<div class="footer-arrow"></div>
+	<script src="js/appFront.js" type="text/javascript"></script>
+</body>
+</html>

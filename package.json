@@ -1,0 +1,19 @@
+{
+  "name": "nsd-nodeserialdownloader",
+  "description": "NSD is a simple serial downloader made with Node.js, Electron and Photon.",
+  "version": "0.0.1",
+  "main": "appBack.js",
+  "license": "MIT",
+  "author": "Richard Eitz",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^1.8.4"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
+  }
+}

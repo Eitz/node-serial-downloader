@@ -1,0 +1,159 @@
+html, body {
+	height: 100%;
+	background-color: transparent;
+}
+
+.text-help {
+	margin-left: 3px;
+    display: block;    
+}
+
+.text-error {
+	color: #F66;
+	display: none;
+}
+
+body {
+	margin:0;
+	background-color: transparent;
+	overflow: hidden;
+}
+
+.footer-arrow {
+	position: absolute;
+	bottom: 2px;
+	left: 50%;
+	margin-left: -5px;
+	height: 10px;
+	width: 10px;
+	transform: rotate(-45deg);
+	background-color: #666;
+	background-image: linear-gradient(to bottom,#6D6D6D 0,#666 100%);
+	z-index: 1;
+}
+
+.wrapper {
+	height: calc(100% - 7px);
+	position: relative;
+	box-shadow: 2px 2px 5px rgba(0,0,0, 0.3);
+	margin: 10px;
+	margin-top: 0px;
+}
+
+.side-kick, .pane, .pane-sm {
+	padding-left: 10px;
+	padding-right: 0px;
+}
+
+.form-title {
+	font-weight: bold;
+}
+
+.form-group.inline label,
+.form-group.inline input[type="number"]{
+	display: inline-block;
+	width: 28%;
+}
+.form-group.inline label {
+	position: relative;
+	top: 11px;
+	margin-top: -10px;
+	margin-left: 3px;
+	font-weight: 500;
+}
+
+.form-group.inline input {
+	width: 65%;
+}
+
+form input[type="number"],
+form input[type="email"],
+form input[type="text"] {
+	color: #EEE;
+	background-color: #222;
+	border: none;
+}
+
+.icon {
+	position: relative;
+	top: 1px;
+}
+
+.icon {
+	float: none !important;
+}
+
+form .checkbox,
+form .radio {
+	margin-top: 3px !important;
+	margin-bottom: 3px !important;
+}
+
+.window {
+	background-color: rgba(50,50,50, 0.95);
+	color: #FFF;
+	border-radius: 5px;
+}
+
+.window {
+	border: none;
+}
+
+.toolbar {
+	color: #EEE;
+	background-image: linear-gradient(to bottom,#888 0,#666 100%);
+	box-shadow: inset 0 1px 0 #999;
+	padding-top: 2px;
+}
+
+.toolbar-header {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom: 1px solid #666;
+}
+
+.toolbar-footer {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top: 1px solid #666;
+}
+
+ul {
+	padding-left: 15px;
+}
+
+.toolbar h1 {
+	color: #EEE;
+}
+
+.btn {
+	border: none !important;
+}
+
+.btn.btn-primary {
+	background-image: linear-gradient(to bottom,#333 0,#222 100%);
+}
+
+.btn.btn-primary .icon {
+	color: #FFF;
+}
+
+.toolbar h1 img {
+	position: relative;
+	top: 4px;
+	filter: contrast(60%);
+	-webkit-filter: contrast(60%);
+}
+
+.progress {
+	margin: 10px;
+	background: #222;
+	height: 10px;
+	width: 93%;
+}
+
+.progress .bar {
+	height: 100%;
+	width: 0%;
+	background: #b15eda;
+}
