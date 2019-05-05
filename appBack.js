@@ -1,11 +1,11 @@
-const {app, BrowserWindow, ipcMain, Tray} = require('electron')
+const { app, BrowserWindow, ipcMain, Tray } = require('electron');
 const SerialDownloader = require('./downloader');
-const path = require('path')
+const path = require('path');
 
 const assetsDirectory = path.join(__dirname, 'img')
 
-let tray = undefined
-let window = undefined
+let tray = undefined;
+let window = undefined;
 /*
  if we ever support MacOS we're going to need this.
 // Don't show the app in the dock
@@ -14,8 +14,8 @@ if (app.plataform == 'darwin')
 */
 
 app.on('ready', () => {
-  createTray()
-  createWindow()
+  createTray();
+  createWindow();
 })
 
 // Quit the app when the window is closed
@@ -54,12 +54,14 @@ const createWindow = () => {
 		fullscreenable: false,
 		resizable: false,
     transparent: true,
-    'node-integration': false,
-    skipTaskbar: true
+    webPreferences: {
+      contextIsolation:	false,
+      nodeIntegration: true,
+    }
 	});
   
   window.loadURL('file://' + __dirname + '/index.html');
-  // window.webContents.openDevTools();
+  // window.webContents.openDevTools({ mode: 'detach' });
 
   // Hide the window when it loses focus
   window.on('blur', () => {

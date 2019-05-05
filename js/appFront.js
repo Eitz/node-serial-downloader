@@ -34,7 +34,6 @@ function chooseDirectory() {
 }
 
 function toggleError(parentElement, setError) {
-    console.log(parentElement);
     let els = parentElement.getElementsByClassName('text-error');
     for (let e of els) {
         if (!setError) {
